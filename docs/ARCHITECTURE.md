@@ -3,21 +3,21 @@
 ## Layers
 
 ```
-niri/better-niri
+niri/loom-niri
   core: DRM/KMS, renderers, layout, input, IPC, config, capture
   built-in modules: effects, navigation, cursor, agent, kde, vulkan
         │  niri IPC (unix socket, JSON)
         ▼
-better-companion ── one daemon, internal modules
+loom-companion ── one daemon, internal modules
   parking / rules / launch / swallow / marks / hooks / idle / rotate
         │
-        ├── better-session   (contexts, restore order)
-        ├── better-monitor   (output profiles, rollback)
-        ├── better-shot      (capture, annotate, record, pins)
-        ├── better-audio     (PipeWire routing)
-        ├── better-wallpaper (scenes, native layer surfaces)
-        ├── better-sidepanels(layer-shell panels and stacks)
-        └── better-portal    (XDG portal backend)
+        ├── loom-session   (contexts, restore order)
+        ├── loom-monitor   (output profiles, rollback)
+        ├── loom-shot      (capture, annotate, record, pins)
+        ├── loom-audio     (PipeWire routing)
+        ├── loom-wallpaper (scenes, native layer surfaces)
+        ├── loom-sidepanels(layer-shell panels and stacks)
+        └── loom-portal    (XDG portal backend)
                 │
                 ▼
              Noctalia widgets (Luau, public CLI only)
@@ -44,13 +44,13 @@ requested binary and exits with its status.
 - niri: KDL at `$XDG_CONFIG_HOME/niri/config.kdl`; IPC socket from
   `$NIRI_SOCKET`.
 - companion: optional config plus JSON state under
-  `$XDG_STATE_HOME/better-companion/`; UDS API with newline-delimited JSON.
-- monitor: profiles in `$XDG_STATE_HOME/better-monitor/`.
-- session: contexts in `$XDG_STATE_HOME/better-session/`.
-- shot: history and pins in `$XDG_STATE_HOME/better-shot/`.
+  `$XDG_STATE_HOME/loom-companion/`; UDS API with newline-delimited JSON.
+- monitor: profiles in `$XDG_STATE_HOME/loom-monitor/`.
+- session: contexts in `$XDG_STATE_HOME/loom-session/`.
+- shot: history and pins in `$XDG_STATE_HOME/loom-shot/`.
 - wallpaper: scene config and state in `$XDG_CONFIG_HOME` /
-  `$XDG_STATE_HOME/better-wallpaper/`.
-- sidepanels: `$XDG_CONFIG_HOME/better-sidepanels/config.json`; the stack
+  `$XDG_STATE_HOME/loom-wallpaper/`.
+- sidepanels: `$XDG_CONFIG_HOME/loom-sidepanels/config.json`; the stack
   manager has its own TOML.
 
 Every state file is written to a temporary file and renamed, so a crash leaves
