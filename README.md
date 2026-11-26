@@ -133,19 +133,19 @@ sRGB→PQ blending, reference-white handling, post-blend PQ encode, HDR cursor
 columns and HDR capture paths. The KMS side still needs validation on NVIDIA
 hardware; the test suite covers the shader/CPU math and RADV rendering.
 
-There are two deliberate limits:
-
 - **Output mirroring** is not a compositor primitive in niri. `better-monitor`
-  validates and stores a mirror relationship and reports it as config-only. A
-  real mirror needs a compositor output-composition feature; an external
-  `wl-mirror` window is the current workaround.
-- **HDR wallpaper scanout** needs a 10-bit, colour-managed layer surface. The
-  native wallpaper backend is intentionally SDR (`Xrgb8888` + `wl_shm`); HDR
-  video is tone-mapped to SDR. A true HDR background is a layer-surface colour
-  management feature, not a wallpaper setting.
+  runs `wl-mirror <source> --fullscreen-output <target>` for profile mirror
+  relations and tracks only its own children; a native mirror would need an
+  output-composition feature.
+- **HDR wallpapers** now have a real path for HDR video: `better-wallpaper`
+  submits 10-bit PQ/BT.2020 `wl_shm` frames with a `wp_color_manager_v1`
+  description when the output is HDR-active, and falls back to SDR tone-mapping
+  otherwise. Static images stay SDR. This still needs a live HDR/Wayland run;
+  the offline tests cover the pixel math, format selection and fallbacks.
 
-See `better-niri/docs/UNIMPLEMENTED.md` for the exact remaining list and the
-reference comparison with COSMIC's HDR fork.
+See the [HDR notes](https://github.com/fram446742/better-niri/blob/integration/elite-base/docs/HDR.md)
+and `better-niri/docs/UNIMPLEMENTED.md` for the exact remaining list and the
+COSMIC comparison.
 
 ## AUR
 
