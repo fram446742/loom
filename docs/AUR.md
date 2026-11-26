@@ -9,7 +9,7 @@ companion and the `better-desktop` meta package.
 
 | AUR repository | Source | Packages |
 | --- | --- | --- |
-| `niri-better` (published) | pinned commit `644e0281` | `niri-better`, `better-portal`, `better-companion`, `better-monitor`, `better-session`, `better-shot`, `better-wallpaper`, `better-settings`, `better-audio`, `better-sidepanels`, `better-noctalia-plugins`, `better-desktop` |
+| `niri-better` (published) | pinned commit `07e14ac3` | `niri-better`, `better-portal`, `better-companion`, `better-monitor`, `better-session`, `better-shot`, `better-wallpaper`, `better-settings`, `better-audio`, `better-sidepanels`, `better-noctalia-plugins`, `better-desktop` |
 | `niri-better-git` (local recipe) | `integration/elite-base` | same split packages |
 
 AUR only allows one package base per split package name. Publishing
@@ -70,7 +70,7 @@ cargo test -p niri --no-default-features
 ./scripts/test-all.sh
 ```
 
-Then bump the pinned commit, regenerate `.SRCINFO`, push the two AUR
-repositories, and tag the source releases. The `-git` recipe intentionally
-follows the integration branch; the pinned recipe is what users install for a
-stable version.
+Then bump the pinned commit, regenerate `.SRCINFO`, push the published AUR
+repository, and tag the source releases. The `-git` recipe intentionally
+follows the integration branch and stays local until it gets its own split
+package names.
