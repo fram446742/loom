@@ -151,13 +151,12 @@ reference comparison with COSMIC's HDR fork.
 
 The split recipes live in `better-niri/packaging/aur/`:
 
-- `niri-better` (pinned source) and `niri-better-git` (branch).
-- One package per tool, plus `better-noctalia-plugins` and the `better-desktop`
-  meta package.
+- `niri-better` (pinned source, published on AUR) owns every split package.
+- `niri-better-git` (branch recipe) is kept for local builds; AUR rejects it
+  alongside `niri-better` because the split package names would collide.
 
 The package base owns all binaries, including `better`. AUR upload steps and
-the package list are in [`docs/AUR.md`](docs/AUR.md). The AUR repositories are
-separate git repositories; this repository does not push to them automatically.
+the package list are in [`docs/AUR.md`](docs/AUR.md).
 
 ## Provenance
 

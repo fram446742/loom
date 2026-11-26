@@ -9,8 +9,14 @@ companion and the `better-desktop` meta package.
 
 | AUR repository | Source | Packages |
 | --- | --- | --- |
-| `niri-better` | pinned commit | `niri-better`, `better-portal`, `better-companion`, `better-monitor`, `better-session`, `better-shot`, `better-wallpaper`, `better-settings`, `better-audio`, `better-sidepanels`, `better-noctalia-plugins`, `better-desktop` |
-| `niri-better-git` | `integration/elite-base` | same split packages |
+| `niri-better` (published) | pinned commit `644e0281` | `niri-better`, `better-portal`, `better-companion`, `better-monitor`, `better-session`, `better-shot`, `better-wallpaper`, `better-settings`, `better-audio`, `better-sidepanels`, `better-noctalia-plugins`, `better-desktop` |
+| `niri-better-git` (local recipe) | `integration/elite-base` | same split packages |
+
+AUR only allows one package base per split package name. Publishing
+`niri-better-git` alongside `niri-better` is rejected because it would overwrite
+`niri-better`, `better-shot`, etc. The `-git` recipe remains in the tree for
+local builds; a published variant needs `-git`-suffixed package names and
+matching `provides`/`conflicts`.
 
 The compositor packages provide/conflict with `niri`, so only one compositor
 package may be installed. The tool packages are independent and do not pull the
