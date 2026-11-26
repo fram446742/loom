@@ -151,7 +151,7 @@ COSMIC comparison.
 
 The split recipes live in `better-niri/packaging/aur/`:
 
-- `niri-better` (pinned source, published on AUR) owns every split package.
+- `niri-better` (pinned source, [published on AUR](https://aur.archlinux.org/packages/niri-better)) owns every split package.
 - `niri-better-git` (branch recipe) is kept for local builds; AUR rejects it
   alongside `niri-better` because the split package names would collide.
 
